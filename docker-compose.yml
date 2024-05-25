@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  djweb:
+    container_name: dj_celery_learning
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    env_file:
+      - ./_prj/.env
+    ports:
+      - 8001:8000

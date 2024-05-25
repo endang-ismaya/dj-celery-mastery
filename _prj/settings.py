@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # internal apps
+    "app_sandbox",
     # 3rd party apps
 ]
 
@@ -139,5 +140,5 @@ LOGOUT_REDIRECT_URL = "accounts:login"
 
 
 # CELERY
-CELERY_BROKER_URL = "redis://redis:6380/0"
-cELERY_RESULT_BACKEND = "redis://redis:6380/0"
+CELERY_BROKER_URL = "redis://redis:6379/0"
+cELERY_RESULT_BACKEND = "redis://redis:6379/0"

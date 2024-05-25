@@ -2,12 +2,14 @@ version: '3.8'
 
 services:
   redis:
+    container_name: redis
     image: redis:alpine  # Use the official Redis image
     ports:
-      - "6380:6380"   # Expose Redis port
+      - 6379:6379   # Expose Redis port
 
   djweb:
     build: .
+    container_name: djweb
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
@@ -21,6 +23,7 @@ services:
   celery:
     container_name: celery
     build: .
+    command: celery --app=_prj worker --loglevel=info
     volumes:
       - .:/app
     depends_on:

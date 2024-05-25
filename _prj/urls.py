@@ -5,5 +5,8 @@ from django.urls import include, path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    # app_sandbox
+    path("sandbox/", include("app_sandbox.urls")),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
